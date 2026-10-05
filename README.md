@@ -1,6 +1,6 @@
 # 🛠️ My First Network & AI Tools
 
-Welcome to my repository featuring my first projects focused on network security, automation, and Artificial Intelligence!
+Welcome to my repository featuring my first projects focused on network security, automation, and Artificial Intelligence! Designed as a prototype portfolio for the KAIST application evaluation.
 
 ---
 
@@ -8,35 +8,36 @@ Welcome to my repository featuring my first projects focused on network security
 
 ## 🧠 Repository Overview:
 
-### 1. 🤖 Local AI Assistant (`kaist.ai`)
-An advanced AI assistant powered by the **Ollama** framework and the **Gemma 2 (9B)** language model.
-* **Tech Stack:** Python, Ollama, EasyOCR, PyPDF, BM25Okapi, DuckDuckGo Search API.
-* **Features:** A fully functional RAG (Retrieval-Augmented Generation) system. The AI scans local PDF textbooks using Optical Character Recognition (OCR) and leverages this knowledge for responses. It also includes a web search module for live data retrieval via DuckDuckGo.
+### 1. 🛡️ FEATURED PROJECT: Aegis-Net (Autonomous AI-Driven IPS/IDS)
+A high-performance Automated Intrusion Detection and Prevention System.
+* **Concept:** Synergizing low-level system statistics monitoring with Local Large Language Models (LLM) orchestration.
+* **Core Logic:** The script continuously audits system sockets via `psutil`. Upon detecting anomalous socket multiplexing or potential connection flooding (e.g., DDoS vectors), the telemetry is instantly dispatched to the **Gemma 2 (9B)** neural core running via **Ollama**.
+* **Autonomous Mitigation:** The AI engine acts as a cyber-analyst: evaluates threat severity, establishes mitigation frameworks, and outputs targeted low-level Netfilter commands (`iptables`) for real-time kernel-level packet dropping.
 
-### 2. 🛡️ Network Security Audit Tool (`net_audit.py`)
-A script designed for quick analysis of home internet parameters and external perimeter security.
-* **Features:** Automatically detects public IP address, location, and the Internet Service Provider (ISP). Scans critical router ports (SSH, HTTP, HTTPS, RDP) most vulnerable to cyber attacks, verifying their status (`OPEN/CLOSED`).
+### 2. 🧟 Cyber-Necromancer (AI Server Resuscitation Tool)
+An autonomous script for automated server health diagnostics and self-healing.
+* **Logic:** Pings servers and traps crashes. Extracts raw log outputs, submits them to the local LLM, and automatically pipe the generated recovery Bash scripts straight into the Linux terminal.
+
+### 3. 🤖 Local AI Assistant (`kaist.ai`)
+An advanced AI assistant featuring a fully functional RAG (Retrieval-Augmented Generation) system.
+* **Features:** Scans local PDF textbooks via OCR (`easyocr`) and references text data along with custom DuckDuckGo internet searches to construct accurate responses.
+
+### 4. 📊 Network Perimeter & Provider Auditor (`net_audit.py`)
+A fast script that parses your public IP addresses, analyzes your ISP data, and audits open perimeter ports (SSH, HTTP, HTTPS, RDP).
 
 ---
 
 ## 💻 How to Run Locally:
+```bash
+# Install dependencies
+pip install ollama pypdf easyocr numpy rank_bm25 duckduckgo_search psutil
 
-1. Install dependencies:
-   ```bash
-   pip install ollama pypdf easyocr numpy rank_bm25 duckduckgo_search
-   ```
-2. Run Network Audit:
-   ```bash
-   python net_audit.py
-   ```
-3. Run AI Assistant:
-   ```bash
-   python kaist.ai/app.py
-   ```
-
----
-**Developer:** Islambek (17 years old, Bishkek, Kyrgyzstan) 🇰🇬  
-*Studying Linux system administration, network cybersecurity, and local LLM integration.*
+# Run scripts
+python aegis_ids.py
+python necromancer.py
+python net_audit.py
+python kaist.ai/app.py
+```
 
 ---
 
@@ -44,11 +45,18 @@ A script designed for quick analysis of home internet parameters and external pe
 
 ## 🧠 Содержание репозитория:
 
-### 1. 🤖 Локальный ИИ-Ассистент (`kaist.ai`)
-Продвинутый ИИ-помощник, разработанный на базе фреймворка **Ollama** и языковой модели **Gemma 2 (9B)**. 
-* **Технологии:** Python, Ollama, EasyOCR, PyPDF, BM25Okapi, DuckDuckGo Search API.
-* **Фишка:** Реализована полноценная RAG-система. ИИ умеет сканировать локальные PDF-книги с помощью оптического распознавания текста (OCR) и использовать эти знания при ответах. Также встроен модуль экстренного поиска актуальной информации в интернете через пул DuckDuckGo.
+### 1. 🛡️ ГЛАВНЫЙ ПРОЕКТ: Aegis-Net (Автономная ИИ-система IPS/IDS)
+Высокопроизводительная система автоматического обнаружения и предотвращения вторжений в реальном времени.
+* **Логика:** Скрипт непрерывно сканирует сетевые сокеты через `psutil`. При фиксации аномалий (флуд подключений, DDoS), данные передаются нейроядру **Gemma 2 (9B)** через **Ollama**. ИИ выполняет роль аналитика и выдает низкоуровневые команды брандмауэра (`iptables`) для мгновенной блокировки угрозы на уровне ядра.
 
-### 2. 🛡️ Аудитор Сетевой Безопасности (`net_audit.py`)
-Инженерный скрипт для быстрого анализа параметров домашнего интернета и сетевого периметра.
-* **Функционал:** Автоматически определяет внешний IP-адрес, страну подключения и текущего интернет-провайдера (ISP). Выполняет сканирование критических внешних портов роутера (SSH, HTTP, HTTPS, RDP), уязвимых для хакерских атак, проверяя их на статус `OPEN/CLOSED`.
+### 2. 🧟 Cyber-Necromancer (ИИ-Реаниматор Серверов)
+Автономный скрипт для мониторинга «падения» сетевых узлов. Извлекает логи ошибок, отправляет локальному ИИ и автоматически исполняет сгенерированную Bash-команду для починки системы.
+
+### 3. 🤖 Локальный ИИ-Ассистент (`kaist.ai`)
+Продвинутый ИИ-помощник с RAG-системой. Умеет считывать текст с PDF-учебников с помощью оптического распознавания (OCR) и искать свежие данные в интернете через DuckDuckGo API.
+
+### 4. 📊 Аудитор Сетевой Безопасности (`net_audit.py`)
+Скрипт для проверки внешнего IP, анализа провайдера (Aknet) и аудита уязвимых внешних портов роутера.
+
+---
+**Developer:** Islambek (17 years old, Bishkek, Kyrgyzstan) 🇰🇬  
